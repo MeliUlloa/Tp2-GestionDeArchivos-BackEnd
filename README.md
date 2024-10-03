@@ -34,3 +34,9 @@ npm install uuid
 Librería para peticiones con token validados
 
 npm install jsonwebtoken
+
+npm install multer
+
+Comando de renderización:
+
+npm run dev

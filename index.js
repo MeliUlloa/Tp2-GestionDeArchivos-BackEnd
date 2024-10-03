@@ -1,17 +1,19 @@
-const app = require ("./app");
+const app = require("./app");
 const envs = require("./config");
+const os = require('os');
+
 
 // implementamos Soket.io
 const http = require("http");
 const server = http.createServer(app);
 const { Server } = require("socket.io");
-const io = new Server (server);
+const io = new Server(server);
 
 const socketHandler = require("./src/sockets/handler.socket");
 
 const main = () => {
     server.listen(app.get("port"), () => {
-        console.log(`Server running on port ${app.get("port")}`);
+        console.log(`Server running on port ${3000}`);
     });
 
     io.on("connection", (socket) => {
@@ -20,6 +22,7 @@ const main = () => {
     });
 
 };
+console.log('uptime', os.uptime() / 60 / 60);
 
 main();
 

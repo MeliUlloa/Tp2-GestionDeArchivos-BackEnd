@@ -1,7 +1,3 @@
-/**
- * Helper for file load
- */
-
 const { v4: uuidv4 } = require("uuid");
 const path = require("path");
 
