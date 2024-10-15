@@ -1,4 +1,8 @@
-//creamos una fx solo para imprimir por consola un mensaje emitido por el cliente
+/**
+ * Maneja los eventos de WebSocket para cada cliente conectado.
+ * @param {Socket} socket - El objeto socket que representa la conexión del cliente.
+ */
+
 const socketHandler = (socket) =>{
 //     creamos un evento personalizado, llamado “message”, que
 // va a ser escuchado por esta fx.

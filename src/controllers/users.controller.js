@@ -1,4 +1,5 @@
 const { getConnection } = require("../database/database");
+const { request, response } = require("express");
 
 /**
  * Crea un nuevo usuario en la base de datos.

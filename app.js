@@ -1,9 +1,11 @@
 const express = require('express');
 const morgan = require("morgan");
 const cors = require("cors");
-const fileToUpload = require("express-fileupload");
-const usersRoutes = require('./src/routes/users.routes');
-const pagosRoutes = require('./src/routes/pagos.routes');
+const fileToUpload = require("express-fileupload"); // Para manejar la subida de archivos
+
+//Routes
+const usersRoutes = require('./src/routes/users.routes'); // Rutas de usuarios
+const pagosRoutes = require('./src/routes/pagos.routes'); // Rutas de pagos
 
 //* Express
 const app = express();
@@ -17,17 +19,16 @@ app.use(cors());
 // Middlewares
 app.use(morgan("dev"));
 
+
 // Rutas
 app.use('/users', usersRoutes);
 app.use('/pagos', pagosRoutes);
 
-
-// const files = require("./routes/upload-file-routes");
-
-
+// Puerto en el cual se ejecutará la aplicación
 app.set("port", 3000)
 
-module.exports = app
+module.exports = app;
+
 // En este archivo, vamos a configurar nuestro proyecto, express practicamente es el
 // nueclo del mismo, por lo que necesita ser configurado. Con app (instancia importada de
 // express) vamos a poder ingresar a todos los metodos necesarios para la configuracion,
@@ -35,9 +36,3 @@ module.exports = app
 // configuraciones, como el uso de cors, morgan, json (transforma todas las peticiones en
 // un formato JSON), las rutas (endpoints) de nuestra aplicacion. Y por ultimo lo
 // exportamos para sea visible en el resto del proyecto.
-
-// Configuración del puerto
-// const PORT = 3000;
-// app.listen(PORT, () => {
-//   console.log(`Servidor corriendo en http://localhost:${PORT}`);
-// });

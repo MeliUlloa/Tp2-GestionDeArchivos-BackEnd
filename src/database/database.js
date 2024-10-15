@@ -5,7 +5,14 @@
 const mysql = require("mysql2/promise");
 const config = require("../../config");
 
-//Generamos la conexión 
+ 
+/**
+ * Establece la conexión a la base de datos usando las configuraciones del archivo config.
+ * 
+ * @returns {Promise} Conexión a la base de datos.
+ */
+
+//Generamos la conexión
 
 const connection = mysql.createConnection({
     host: config.host,

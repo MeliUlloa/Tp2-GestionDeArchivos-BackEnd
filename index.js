@@ -2,23 +2,29 @@ const app = require("./app");
 const envs = require("./config");
 const os = require('os');
 
-
-// implementamos Soket.io
+// servidor con HTTP.
 const http = require("http");
 const server = http.createServer(app);
+
+// implementamos Soket.io
 const { Server } = require("socket.io");
 const io = new Server(server);
 
+// Llamada a la fx del socket
 const socketHandler = require("./src/sockets/handler.socket");
+
+//const socketHandler = require("./sockets/recibos.socket");
+
 
 const main = () => {
     server.listen(app.get("port"), () => {
-        console.log(`Server running on port ${3000}`);
+        console.log(`Server running on port ${app.get("port")}`);
+
     });
 
     io.on("connection", (socket) => {
         console.log("Usuario conectado");
-        // socketHandler.socketHandler(socket);
+         socketHandler.socketHandler(socket);
     });
 
 };
